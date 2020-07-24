@@ -1,3 +1,7 @@
+'''
+Based on code found at https://raspberrypihq.com/making-a-led-blink-using-
+the-raspberry-pi-and-python/
+'''
 import RPi.GPIO as GPIO
 from time import sleep
 
