@@ -1,5 +1,5 @@
 '''
-Based on code found at https://raspberrypihq.com/making-a-led-blink-using-
+Based on the code found at https://raspberrypihq.com/making-a-led-blink-using-
 the-raspberry-pi-and-python/
 '''
 import RPi.GPIO as GPIO
