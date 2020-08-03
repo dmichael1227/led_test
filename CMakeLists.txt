@@ -54,6 +54,7 @@ find_package(catkin REQUIRED COMPONENTS
    LED.msg
    Temp.msg
    BME.msg
+   GPS.msg
  )
 
 ## Generate services in the 'srv' folder
@@ -162,7 +163,7 @@ include_directories(
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
-  scripts/talker.py scripts/listener.py scripts/led_controller.py scripts/led_receiver.py scripts/temp_listen_convert.py scripts/temp_read_publish.py
+  scripts/talker.py scripts/listener.py scripts/led_controller.py scripts/led_receiver.py scripts/temp_listen_convert.py scripts/temp_read_publish.py scripts/gps_bme_reader.py scripts/gps_talker.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 
