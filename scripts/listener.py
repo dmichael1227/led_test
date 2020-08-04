@@ -4,8 +4,12 @@
 # Software License Agreement (GPLv3 License)
 
 import rospy
+import os
 from subprocess import Popen, PIPE
 from std_msgs.msg import String
+
+package_path = os.environ['ROS_PACKAGE_PATH'] #read the ROS_PACKAGE_PATH environment variable to get an idea where your/src/ directory is for your catkin workspace
+src_path,dummy = package_path.split(':') #grab the first entry. this should be the catkin_ws/src file where all your ros packages live. If not, change this line so that it references the directory where your led_test package lives
 
 def callback(data):
     rospy.loginfo(rospy.get_caller_id() + 'I heard %s', data.data)
@@ -26,6 +30,6 @@ def listener():
 
 if __name__ == '__main__':
     # Popen(['sudo','python3','/home/ubuntu/catkin_ws/src/led_test/python_scripts/blink_test.py'], stdout=PIPE, stderr=PIPE) 
-    Popen(['sudo','python3','blink_test.py'],stdout=PIPE,stderr=PIPE)
+    Popen(['sudo','python3',src_path+'led_test/scripts/blink_test.py'],stdout=PIPE,stderr=PIPE)
     listener()
 

@@ -4,10 +4,14 @@
 # Software License Agreement (GPLv3 License)
 
 import rospy
+import os
 from subprocess import Popen, PIPE
 from led_test.msg import BME
 from gps_stuff.msg import GPS
 
+
+package_path = os.environ['ROS_PACKAGE_PATH'] #read the ROS_PACKAGE_PATH environment variable to get an idea 
+src_path, dummy = package_path.split(':')
 def callback1(data):
     #rospy.loginfo(rospy.get_caller_id() + 'I heard %s', data.temp)
     temp_c = data.temp # read temp
@@ -33,5 +37,5 @@ def listener():
 
 if __name__ == '__main__':
     # Popen(['sudo','python3','/home/ubuntu/catkin_ws/src/led_test/python_scripts/blink_test.py'], stdout=PIPE, stderr=PIPE) 
-    Popen(['sudo','python3','blink_test.py'],stdout=PIPE,stderr=PIPE) # can comment this out if you like- this script just blinks pin 8 (NOT GPIO8) 3 times
+    Popen(['sudo','python3',src_path+'/led_test/scripts/blink_test.py'],stdout=PIPE,stderr=PIPE) # can comment this out if you like- this script just blinks pin 8 (NOT GPIO8) 3 times
     listener()

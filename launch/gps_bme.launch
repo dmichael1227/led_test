@@ -1,0 +1,5 @@
+<launch>
+  <node name="bme_talker" pkg="led_test" type="temp_read_publish.py" output="screen" launch-prefix="xterm -e"/>
+  <node name="listener" pkg="led_test" type="gps_bme_reader.py" output="screen" launch-prefix="xterm -e"/>
+  <node name="gps_talker" pkg="led_test" type="gps_talker.py" output="screen" launch-prefix="xterm -e"/>
+</launch>

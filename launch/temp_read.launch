@@ -1,0 +1,4 @@
+<launch>
+  <node name="talker" pkg="led_test" type="temp_read_publish.py" output="screen" launch-prefix="xterm -e"/>
+  <node name="listener" pkg="led_test" type="temp_listen_convert.py" output="screen" launch-prefix="xterm -e"/>
+</launch>

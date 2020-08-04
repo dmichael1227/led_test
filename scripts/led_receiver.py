@@ -6,12 +6,18 @@
 
 import rospy
 import subprocess
+import os
 from std_msgs.msg import Bool
 
+package_path = os.environ['ROS_PACKAGE_PATH'] #read the ROS_PACKAGE_PATH environment variable to get an idea where your/src/ directory is for your catkin workspace
+src_path,dummy = package_path.split(':') #grab the first entry. this should be the catkin_ws/src file where all your ros packages live. If not, change this line so that it references the directory where your led_test package lives
 def callback(data):
     rospy.loginfo(rospy.get_caller_id() + 'I heard %s', data.data) #log what is heard
 #    subprocess.call(['sudo','python3','/home/ubuntu/catkin_ws/src/led_test/python_scripts/led_blinker.py','%s' % data.data])
-    subprocess.call(['sudo','python3','led_blinker.py','%s' % data.data]) # call led_blinker.py when receiving a message
+#    subprocess.call(['sudo','python3','led_blinker.py','%s' % data.data]) # call led_blinker.py when receiving a message
+#    print(src_path + "/led_test/scripts/led_blinker.py")
+    subprocess.call(['sudo','python3',src_path+"/led_test/scripts/led_blinker.py","%s" % data.data]) #call the led_blinker.py script in the directory specified by the environment variable
+
 def listener():
     # In ROS, nodes are uniquely named. If two nodes with the same
     # name are launched, the previous one is kicked off. The
