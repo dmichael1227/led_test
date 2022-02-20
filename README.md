@@ -1,6 +1,6 @@
 # README Documentation
 
-Please refer to the README.pdf document found here:https://github.com/dmichael1227/led_test/blob/master/README.pdf
+Please refer to the README.pdf document found here:https://github.com/mxdrew/led_test/blob/master/README.pdf
 
 
 
